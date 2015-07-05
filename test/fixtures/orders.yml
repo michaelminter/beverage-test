@@ -2,9 +2,9 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  customer_id: 1
-  quantity: 1
+  customer: one
+  quantity: 7
 
 two:
-  customer_id: 1
-  quantity: 1
+  customer: two
+  quantity: 13

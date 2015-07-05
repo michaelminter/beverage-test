@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'faker', '1.4.3'
+gem 'minitest-rails'
 gem 'pusher', '0.14.5'
 gem 'workflow', '1.2.0'
 
@@ -51,8 +52,4 @@ group :development, :test do
   gem 'spring'
 
   gem 'quiet_assets', '1.1.0'
-end
-
-group :test do
-  gem 'minitest-rails'
 end
