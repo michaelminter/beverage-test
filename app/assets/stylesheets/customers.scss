@@ -7,21 +7,19 @@ a {
 }
 
 body.customers {
-  background: #4B538B;
-  header {
-    background: url(/images/superhero.jpg);
-    background-size: 100%;
-    height: 400px;
-  }
   .content {
     padding: 40px 0;
     .container {
-      background: #F7F7F7;
+      background: #FFFFFF;
       -webkit-box-shadow: 10px 10px 0px 0px rgba(65,61,61,1);
       -moz-box-shadow: 10px 10px 0px 0px rgba(65,61,61,1);
       box-shadow: 10px 10px 0px 0px rgba(65,61,61,1);
       color: #170409;
       padding:20px;
+      .sidebar-photos img {
+        margin: 0 0 20px;
+        width: 100%;
+      }
     }
   }
   footer {
