@@ -35,5 +35,7 @@ module BeverageTest
     config.generators do |g|
       g.test_framework :minitest, spec: true
     end
+
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag.html_safe }
   end
 end
