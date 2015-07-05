@@ -23,13 +23,13 @@
 <footer>
   <div class="container">
     <div class="col-md-2">
-      <div id="units-sold-number" class="portlet"><label>Units Sold</label><div><%= units_sold_count %></div></div>
-      <div id="units-shipped-number" class="portlet"><label>Units Shipped</label><div><%= units_shipped_count %></div></div>
+      <div class="portlet"><label>Units Sold</label><div id="units-sold-number"><%= units_sold_count %></div></div>
+      <div class="portlet"><label>Units Shipped</label><div id="units-shipped-number"><%= units_shipped_count %></div></div>
     </div>
     <div class="col-md-10">
-      <div id="sales-feed" class="portlet">
+      <div class="portlet">
         <label>Sales Feed</label>
-        <ul>
+        <ul id="sales-feed">
           <li>first name, quantity, city, country</li>
         </ul>
       </div>
@@ -39,6 +39,10 @@
 
 <script src="https://js.pusher.com/2.2/pusher.min.js"></script>
 <script>
+  function format_feed(type, message) {
+    return '<li class="' + type + '"><strong>' +  message.first_name + '</strong> ' + message.city + ', ' + message.country + '<br />' + message.quantity + ' units ' + type + '</li>';
+  }
+
   // Enable pusher logging - don't include this in production
   Pusher.log = function(message) {
     if (window.console && window.console.log) {
@@ -50,8 +54,17 @@
     encrypted: true
   });
   var channel = pusher.subscribe('test_channel');
-  channel.bind('my_event', function(data) {
-    alert(data.message);
+  var feed = document.getElementById("sales-feed");
+  channel.bind('ordered', function(data) {
+    var sold = document.getElementById("units-sold-number");
+    sold.innerHTML = parseInt(sold.innerHTML) + data.message.quantity;
+    feed.innerHTML = format_feed('ordered', data.message) + feed.children[0].outerHTML;
+  });
+
+  channel.bind('shipped', function(data) {
+    var shipped = document.getElementById("units-shipped-number");
+    shipped.innerHTML = parseInt(shipped.innerHTML) + data.message.quantity;
+    feed.innerHTML = format_feed('shipped', data.message) + feed.children[0].outerHTML;
   });
 </script>
 </body>
