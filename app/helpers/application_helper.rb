@@ -1,9 +1,9 @@
 module ApplicationHelper
   def units_sold_count
-    Order.units_sold.count
+    Order.sold_count
   end
 
   def units_shipped_count
-    Order.units_shipped.count
+    Order.shipped_count
   end
 end

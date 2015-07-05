@@ -13,4 +13,7 @@ class Order < ActiveRecord::Base
     end
     state :returned
   end
+
+  scope :sold_count, -> { sum(:quantity) }
+  scope :shipped_count, -> { with_shipped_state.sum(:quantity) }
 end
