@@ -4,7 +4,9 @@
 one:
   customer: one
   quantity: 7
+  workflow_state: ordered
 
 two:
   customer: two
   quantity: 13
+  workflow_state: shipped
