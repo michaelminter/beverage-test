@@ -1,12 +1,12 @@
 require "test_helper"
 
-describe OrdersController do
+describe CustomersController do
   let(:order) { orders :one }
 
   it "gets index" do
     get :index
     value(response).must_be :success?
-    value(assigns(:orders)).wont_be :nil?
+    value(assigns(:customers)).wont_be :nil?
   end
 
   it "gets new" do

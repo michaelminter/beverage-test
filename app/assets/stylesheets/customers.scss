@@ -6,7 +6,7 @@ a {
   color: #4DBCE9;
 }
 
-body.orders.new {
+body.customers {
   background: #4B538B;
   header {
     background: url(/images/superhero.jpg);
@@ -16,7 +16,7 @@ body.orders.new {
   .content {
     padding: 40px 0;
     .container {
-      background: #EEEEEE;
+      background: #F7F7F7;
       -webkit-box-shadow: 10px 10px 0px 0px rgba(65,61,61,1);
       -moz-box-shadow: 10px 10px 0px 0px rgba(65,61,61,1);
       box-shadow: 10px 10px 0px 0px rgba(65,61,61,1);
