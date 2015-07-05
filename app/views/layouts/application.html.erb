@@ -26,5 +26,22 @@
   </div>
 </footer>
 
+<script src="https://js.pusher.com/2.2/pusher.min.js"></script>
+<script>
+  // Enable pusher logging - don't include this in production
+  Pusher.log = function(message) {
+    if (window.console && window.console.log) {
+      window.console.log(message);
+    }
+  };
+
+  var pusher = new Pusher('566aa5d2785eaa2ae144', {
+    encrypted: true
+  });
+  var channel = pusher.subscribe('test_channel');
+  channel.bind('my_event', function(data) {
+    alert(data.message);
+  });
+</script>
 </body>
 </html>
