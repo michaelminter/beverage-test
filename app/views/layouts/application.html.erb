@@ -30,7 +30,7 @@
       <div class="portlet">
         <label>Sales Feed</label>
         <ul id="sales-feed">
-          <li></li>
+          <%= default_sales_feed_items %>
         </ul>
       </div>
     </div>
@@ -40,7 +40,7 @@
 <script src="https://js.pusher.com/2.2/pusher.min.js"></script>
 <script>
   function format_feed(type, message) {
-    return '<li class="' + type + '"><strong>' +  message.first_name + '</strong> ' + message.city + ', ' + message.country + '<br />' + message.quantity + ' units ' + type + '</li>';
+    return '<li><strong>' +  message.first_name + '</strong> ' + message.city + ', ' + message.country + '<br />' + message.quantity + ' units ' + type + '</li>';
   }
 
   // Enable pusher logging - don't include this in production

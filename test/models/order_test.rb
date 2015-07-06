@@ -50,4 +50,10 @@ describe Order do
       value(Order.join_customer.first.email).must_equal 'michael@imap.com'
     end
   end
+
+  describe '#sales_feed' do
+    it 'should return ordered and shipped orders in desc order' do
+      value(Order.sales_feed.map(&:email)).must_equal ['michael@imap.com', 'michael@pop.com']
+    end
+  end
 end

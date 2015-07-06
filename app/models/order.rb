@@ -19,6 +19,7 @@ class Order < ActiveRecord::Base
   scope :sold_count, -> { sum(:quantity) }
   scope :shipped_count, -> { with_shipped_state.sum(:quantity) }
   scope :join_customer, -> { joins(:customer).select('orders.*, customers.*') }
+  scope :sales_feed, -> { join_customer.order('orders.updated_at DESC').where('orders.workflow_state = ? OR orders.workflow_state = ?', 'ordered', 'shipped') }
 
   def send_order
     Messenger::Publish.new(:ordered, customer_message).call
